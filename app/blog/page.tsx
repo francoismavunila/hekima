@@ -9,6 +9,7 @@ import {
 import { client } from "@/sanity/lib/client"
 import { urlForImage } from "@/sanity/lib/image"
 import Image from "next/image"
+import { blogPreview } from "@/lib/interfaces"
 export const revalidate = 30;
 
 async function getData() {
@@ -26,7 +27,7 @@ async function getData() {
 }
   
 export default async function Blog() {
-const data = await getData()
+const data : blogPreview[] = await getData()
 console.log(data)
 return (
     <div className="mx-auto">
@@ -48,9 +49,9 @@ return (
                         <CardTitle className="line-clamp-1">{post.title}</CardTitle>
                         <CardDescription className="line-clamp-2">{post.introduction}</CardDescription>
                     </CardHeader>
-                    <CardContent className="mt-5">
+                    {/* <CardContent className="mt-5">
                         <p>{post.body}</p>
-                    </CardContent>
+                    </CardContent> */}
                     <CardFooter>
                         <p>{formattedDateTime}</p>
                     </CardFooter>
