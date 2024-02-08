@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./components/theme-provider";
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.variable} font-sans` }>
+      <body className={`${lato.variable} font-sans text-base tracking-widest` }>
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
