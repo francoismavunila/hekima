@@ -17,6 +17,11 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      // sans: ['Graphik', 'sans-serif'],
+      // serif: ['Merriweather', 'serif'],
+      sans: ['var(--font-lato)']
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
