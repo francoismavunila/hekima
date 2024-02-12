@@ -17,7 +17,15 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      // sans: ['Graphik', 'sans-serif'],
+      // serif: ['Merriweather', 'serif'],
+      sans: ['var(--font-lato)']
+    },
     extend: {
+      fontSize: {
+        base: '1.2rem', // This sets the default font size to  16px (assuming the browser default font size is  16px)
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
