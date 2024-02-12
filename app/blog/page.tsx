@@ -10,6 +10,7 @@ import { client } from "@/sanity/lib/client"
 import { urlForImage } from "@/sanity/lib/image"
 import Image from "next/image"
 import { blogPreview } from "@/lib/interfaces"
+import Link from "next/link"
 export const revalidate = 30;
 
 async function getData() {
@@ -38,16 +39,17 @@ return (
             const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' });
             const formattedDateTime = formatter.format(date);
             return (
-                <Card key={key}>
+                <Link href={`/blog/${post.current_slug}`} key={key}>
+                <Card  className="transition-transform duration-200 ease-in-out hover:scale-105">
                     <Image
                         src={urlForImage(post.image)}
                         alt={post.title}
                         width={500}
                         height={500}
-                        className="rounded-t-lg h-[200px] object-cover"/>
+                        className="rounded-t-lg h-[200px] object-cover "/>
                     <CardHeader>
-                        <CardTitle className="line-clamp-1">{post.title}</CardTitle>
-                        <CardDescription className="line-clamp-2">{post.introduction}</CardDescription>
+                        <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                        <CardDescription className="line-clamp-3">{post.introduction}</CardDescription>
                     </CardHeader>
                     {/* <CardContent className="mt-5">
                         <p>{post.body}</p>
@@ -56,6 +58,7 @@ return (
                         <p>{formattedDateTime}</p>
                     </CardFooter>
                 </Card>
+                </Link>
             )
         })}
         </div>
