@@ -39,8 +39,8 @@ return (
             const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' });
             const formattedDateTime = formatter.format(date);
             return (
-                <Link href={`/blog/${post.current_slug}`}>
-                <Card key={key} className="transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link href={`/blog/${post.current_slug}`} key={key}>
+                <Card  className="transition-transform duration-200 ease-in-out hover:scale-105">
                     <Image
                         src={urlForImage(post.image)}
                         alt={post.title}
