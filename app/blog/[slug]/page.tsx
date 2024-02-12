@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client"
 import { urlForImage } from "@/sanity/lib/image"
 import {PortableText} from '@portabletext/react'
+import Image from "next/image";
 export const revalidate = 30;
 
 async function getData(slug: string){
@@ -26,7 +27,7 @@ export default async function BlogDetails({
         <h1 className="text-4xl font-bold text-gray-400">{post.title}</h1>
         <div className="text-sm my-12 text-gray-500">Published on {post.publishedAt}</div>
       </div>
-      <img src={urlForImage(post.image)} alt={post.title} className="w-full h-auto my-4 rounded" />
+      <Image src={urlForImage(post.image)} alt={post.title} width={500} height={500} className="w-full h-auto my-4 rounded" />
       {/* <div className="mb-4">
         <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">{post.categories}</span>
       </div> */}
